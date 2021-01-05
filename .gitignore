@@ -134,3 +134,6 @@ dmypy.json
 # node
 node_modules/
 src/
+
+# babel
+.babelrc
