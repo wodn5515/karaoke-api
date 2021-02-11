@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     "rest_framework",
     # Installed APPS
     "todo",
-    "frontend",
     "api",
     "account.apps.AccountConfig",
 ]
@@ -51,7 +50,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "server.urls"
+ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
     {
@@ -69,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "server.wsgi.application"
+WSGI_APPLICATION = "config.wsgi.application"
 
 
 # Password validation
