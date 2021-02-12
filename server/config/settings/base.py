@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework",
     # Installed APPS
-    "todo",
     "api",
     "account.apps.AccountConfig",
 ]
