@@ -36,10 +36,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     username = models.CharField(_("ID"), max_length=20, unique=True)
-    email = models.EmailField(_("Email"), unique=True, default="")
+    nickname = models.CharField(_("닉네임"), max_length=16, unique=True, null=True)
     is_staff = models.BooleanField(_("스태프"), default=False)
 
-    EMAIL_FIELD = "email"
     USERNAME_FIELD = "username"
     REQUIRED_FIELDS = ["email"]
 
