@@ -13,18 +13,18 @@ from django.contrib.auth.models import (
 class UserManager(BaseUserManager):
     use_in_migrations = True
 
-    def create_user(self, username, email, password):
+    def create_user(self, username, nickname, password):
         if not username:
             raise ValueError("아이디를 입력해주세요.")
-        if not email:
-            raise ValueError("이메일을 입력해주세요.")
-        user = self.model(username=username, email=email)
+        if not nickname:
+            raise ValueError("닉네임을 입력해주세요.")
+        user = self.model(username=username, nickname=nickname)
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, username, email, password):
-        user = self.create_user(username=username, email=email, password=password)
+    def create_superuser(self, username, nickname, password):
+        user = self.create_user(username=username, nickname=nickname, password=password)
         user.is_superuser = True
         user.is_staff = True
         user.save(using=self._db)
@@ -36,11 +36,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     username = models.CharField(_("ID"), max_length=20, unique=True)
-    nickname = models.CharField(_("닉네임"), max_length=16, unique=True, null=True)
+    nickname = models.CharField(_("닉네임"), max_length=16, unique=True)
     is_staff = models.BooleanField(_("스태프"), default=False)
 
     USERNAME_FIELD = "username"
-    REQUIRED_FIELDS = ["email"]
+    REQUIRED_FIELDS = ["nickname"]
 
     class Meta:
         verbose_name = "회원"
