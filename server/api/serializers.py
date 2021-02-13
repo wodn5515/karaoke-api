@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from todo.models import Todo
+#from todo.models import Todo
 from .utils import DateTimeFieldUtils
 
-
+'''
 class TodoSerializer(serializers.ModelSerializer, DateTimeFieldUtils):
     author = serializers.StringRelatedField()
 
@@ -16,3 +16,4 @@ class TodoSerializer(serializers.ModelSerializer, DateTimeFieldUtils):
         timestr = self.datetimefilter(instance.date)
         representation["date"] = instance.date.strftime(timestr)
         return representation
+'''

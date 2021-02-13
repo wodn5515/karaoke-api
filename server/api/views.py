@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from todo.models import Todo
-from .serializers import TodoSerializer
+#from todo.models import Todo
+#from .serializers import TodoSerializer
 
 # Create your views here.
 
-
+'''
 class TodoViewset(viewsets.ModelViewSet):
     serializer_class = TodoSerializer
 
@@ -20,3 +20,4 @@ class TodoViewset(viewsets.ModelViewSet):
             return Todo.objects.filter(author=user)
         else:
             return None
+'''
