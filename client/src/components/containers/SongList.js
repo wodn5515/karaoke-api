@@ -1,34 +1,52 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 
-export class SongList extends Component {
+import { getHitsong, getMonthnew } from "../../actions/songlist";
+
+class SongList extends Component {
   render() {
     return <Fragment></Fragment>;
   }
 }
 
 class MonthNew extends Component {
+  componentDidMount() {
+    this.props.getMonthnew();
+  }
+
   render() {
-    return <div></div>;
+    return (
+      <ul>
+        {this.props.songs.map((song, index) => (
+          <li key={index}>{song.title}</li>
+        ))}
+      </ul>
+    );
   }
 }
-
-const MonthNewmapStateToProps = state => ({});
-
-const MonthNewmapDispatchToProps = {};
-
-MonthNew = connect(mapStateToProps, mapDispatchToProps)(MonthNew);
-
-export MonthNew;
 
 class HitSong extends Component {
+  componentDidMount() {
+    this.props.getHitsong();
+  }
+
   render() {
-    return <div></div>;
+    return (
+      <ul>
+        {this.props.songs.map((song, index) => (
+          <li key={index}>{song.title}</li>
+        ))}
+      </ul>
+    );
   }
 }
 
-const HitSongmapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  songs: state.songs.songs,
+});
 
-const HitSongmapDispatchToProps = {};
+MonthNew = connect(mapStateToProps, { getHitsong, getMonthnew })(MonthNew);
 
-export default connect(mapStateToProps, mapDispatchToProps)(HitSong);
+HitSong = connect(mapStateToProps, { getHitsong, getMonthnew })(HitSong);
+
+export { MonthNew, HitSong, SongList };
