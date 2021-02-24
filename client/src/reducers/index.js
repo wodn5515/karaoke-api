@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
 
-import songlist from "./songs";
+import songs from "./songs";
 
-export default combineReducers({ songlist });
+export default combineReducers({ songs });
