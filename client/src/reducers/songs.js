@@ -2,6 +2,7 @@ import { GET_HITSONG, GET_MONTHNEW } from "../actions/types";
 
 const initialState = {
   songs: [],
+  isLoading: true,
 };
 
 export default function songlist(state = initialState, action) {
@@ -10,11 +11,13 @@ export default function songlist(state = initialState, action) {
       return {
         ...state,
         songs: action.payload,
+        isLoading: false,
       };
     case GET_HITSONG:
       return {
         ...state,
         songs: action.payload,
+        isLoading: false,
       };
     default:
       return state;

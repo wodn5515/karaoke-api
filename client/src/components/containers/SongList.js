@@ -16,11 +16,17 @@ class MonthNew extends Component {
 
   render() {
     return (
-      <ul>
-        {this.props.songs.map((song, index) => (
-          <li key={index}>{song.title}</li>
-        ))}
-      </ul>
+      <Fragment>
+        {this.props.isLoading ? (
+          <div>Loading</div>
+        ) : (
+          <ul>
+            {this.props.songs.map((song, index) => (
+              <li key={index}>{song.title}</li>
+            ))}
+          </ul>
+        )}
+      </Fragment>
     );
   }
 }
@@ -32,17 +38,24 @@ class HitSong extends Component {
 
   render() {
     return (
-      <ul>
-        {this.props.songs.map((song, index) => (
-          <li key={index}>{song.title}</li>
-        ))}
-      </ul>
+      <Fragment>
+        {this.props.isLoading ? (
+          <div>Loading</div>
+        ) : (
+          <ul>
+            {this.props.songs.map((song, index) => (
+              <li key={index}>{song.title}</li>
+            ))}
+          </ul>
+        )}
+      </Fragment>
     );
   }
 }
 
 const mapStateToProps = state => ({
   songs: state.songs.songs,
+  isLoading: state.songs.isLoading,
 });
 
 MonthNew = connect(mapStateToProps, { getHitsong, getMonthnew })(MonthNew);
